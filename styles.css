@@ -168,3 +168,32 @@ main{position:relative;z-index:1}.page-section{padding:130px 5vw}.section-soft{b
   .client-logo{width:210px;height:104px}
   .client-logo img{max-width:176px;max-height:76px}
 }
+
+@media (max-width: 768px) {
+  .system-card,
+  .product-card,
+  .feature-card,
+  .ops-card {
+    height: auto !important;
+    min-height: 180px;
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  .system-card h3,
+  .product-card h3,
+  .feature-card h3,
+  .ops-card h3 {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .code-mini,
+  .code-block,
+  .mini-terminal {
+    font-size: 11px;
+    line-height: 1.4;
+    white-space: normal;
+    word-break: break-word;
+  }
+}
