@@ -1,0 +1,1 @@
+{"name":"tamqinx-technology-site","version":"1.0.0","description":"Premium animated multilingual website for Tamqinx Technology","scripts":{"start":"python -m http.server 5173"},"private":true}
