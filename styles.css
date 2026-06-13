@@ -284,68 +284,96 @@ main{position:relative;z-index:1}.page-section{padding:130px 5vw}.section-soft{b
   }
 }
 
-/* FIX CLIENT LOGOS ON MOBILE */
+/* BRAND LOGO MARQUEE — SMOOTH LOOP */
 .client-band {
+  width: 100%;
   overflow: hidden;
+  padding: 36px 0 42px;
+  border-top: 1px solid rgba(20,20,20,0.1);
+  border-bottom: 1px solid rgba(20,20,20,0.1);
+}
+
+.client-band p {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.client-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .client-track {
   display: flex !important;
+  width: max-content;
+  animation: clientLoop 24s linear infinite;
+  will-change: transform;
+}
+
+.client-logo-group {
+  display: flex;
   align-items: center;
   gap: 22px;
-  width: max-content;
-  animation: clientMarquee 32s linear infinite;
-  padding: 18px 0;
+  padding-right: 22px;
+  flex-shrink: 0;
 }
 
 .client-logo {
   flex: 0 0 220px;
+  width: 220px;
   height: 110px;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.62);
   border: 1px solid rgba(20,20,20,0.12);
-  border-radius: 22px;
+  border-radius: 24px;
   overflow: hidden;
 }
 
 .client-logo img {
   display: block !important;
-  max-width: 80%;
-  max-height: 72px;
+  max-width: 84%;
+  max-height: 78px;
   object-fit: contain;
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-@keyframes clientMarquee {
+@keyframes clientLoop {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-33.333%);
+    transform: translateX(-50%);
   }
 }
 
+/* MOBILE BRAND MARQUEE */
 @media (max-width: 768px) {
   .client-band {
-    padding: 34px 0 !important;
-    min-height: 190px !important;
+    padding: 30px 0 36px !important;
+    min-height: 175px !important;
   }
 
   .client-band p {
-    display: block !important;
-    text-align: center;
+    font-size: 9px !important;
     margin-bottom: 18px !important;
-    font-size: 10px !important;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
   }
 
   .client-track {
-    display: flex !important;
+    animation: clientLoop 18s linear infinite !important;
+  }
+
+  .client-logo-group {
     gap: 14px !important;
-    padding: 8px 0 18px !important;
+    padding-right: 14px !important;
   }
 
   .client-logo {
@@ -356,8 +384,11 @@ main{position:relative;z-index:1}.page-section{padding:130px 5vw}.section-soft{b
   }
 
   .client-logo img {
-    max-width: 82% !important;
-    max-height: 56px !important;
-    object-fit: contain !important;
+    max-width: 86% !important;
+    max-height: 58px !important;
   }
+}
+
+.client-track:hover {
+  animation-play-state: paused;
 }

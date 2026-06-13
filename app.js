@@ -639,7 +639,6 @@ function Terminal({title,copy}){
     )
   );
 }
-
 function ClientMarquee(){
   const {lang}=useLang();
 
@@ -648,23 +647,28 @@ function ClientMarquee(){
     'b2.png',
     'b3.png',
     'b4.png',
-    'b5.png',
-    'b6.png',
-    'b7.png',
-    'b8.png'
+    'b5.png'
   ];
 
-  return h('section',{className:'client-band'},
-    h('p',null,t[lang].home.brands),
-    h('div',{className:'client-track'},
-      logos.concat(logos,logos).map((logo,i)=>
+  const LogoGroup = ({hidden=false}) =>
+    h('div',{className:'client-logo-group','aria-hidden':hidden},
+      logos.map((logo,i)=>
         h('div',{className:'client-logo',key:i},
           h('img',{
             src:`assets/client-logos/${logo}`,
-            alt:`Tamqinx client logo ${i + 1}`,
-            loading:'lazy'
+            alt:hidden ? '' : `Tamqinx client logo ${i + 1}`,
+            loading:'eager'
           })
         )
+      )
+    );
+
+  return h('section',{className:'client-band'},
+    h('p',null,t[lang].home.brands),
+    h('div',{className:'client-marquee-wrap'},
+      h('div',{className:'client-track'},
+        h(LogoGroup),
+        h(LogoGroup,{hidden:true})
       )
     )
   );
