@@ -197,3 +197,89 @@ main{position:relative;z-index:1}.page-section{padding:130px 5vw}.section-soft{b
     word-break: break-word;
   }
 }
+
+/* MOBILE FIX — Hero visual overlap */
+@media (max-width: 768px) {
+  .hero-visual {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 28px !important;
+  }
+
+  .visual-shell {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 430px !important;
+    padding: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .visual-inner {
+    height: auto !important;
+    min-height: 400px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    justify-content: flex-start !important;
+  }
+
+  .code-window,
+  .mini-dashboard {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    z-index: 5 !important;
+  }
+
+  .code-window {
+    padding: 10px !important;
+    margin-top: 8px !important;
+  }
+
+  .code-lines {
+    font-size: 9.5px !important;
+    line-height: 1.45 !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .mini-dashboard {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+  }
+
+  .metric {
+    min-height: 64px !important;
+    padding: 12px 14px !important;
+  }
+
+  .metric span {
+    font-size: 10px !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .metric b {
+    font-size: 28px !important;
+    line-height: 1 !important;
+  }
+
+  .ai-orb {
+    opacity: 0.35 !important;
+    transform: scale(0.7) !important;
+    right: 16px !important;
+    top: 18px !important;
+  }
+
+  .robot-mini {
+    display: none !important;
+  }
+}
