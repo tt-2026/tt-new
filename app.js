@@ -642,14 +642,28 @@ function Terminal({title,copy}){
 
 function ClientMarquee(){
   const {lang}=useLang();
-  const logos=['b1','b2','b3','b4','b5'];
+
+  const logos = [
+    'b1.png',
+    'b2.png',
+    'b3.png',
+    'b4.png',
+    'b5.png',
+    'b6.png',
+    'b7.png',
+    'b8.png'
+  ];
 
   return h('section',{className:'client-band'},
     h('p',null,t[lang].home.brands),
     h('div',{className:'client-track'},
-      logos.concat(logos,logos).map((l,i)=>
+      logos.concat(logos,logos).map((logo,i)=>
         h('div',{className:'client-logo',key:i},
-          h('img',{src:`assets/client-logos/${l}.png`,alt:`Client logo ${l}`})
+          h('img',{
+            src:`assets/client-logos/${logo}`,
+            alt:`Tamqinx client logo ${i + 1}`,
+            loading:'lazy'
+          })
         )
       )
     )
