@@ -392,3 +392,96 @@ main{position:relative;z-index:1}.page-section{padding:130px 5vw}.section-soft{b
 .client-track:hover {
   animation-play-state: paused;
 }
+
+/* FIX: Brand logos visible in Arabic mobile mode */
+.client-band,
+.client-marquee-wrap,
+.client-track,
+.client-logo-group {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+.lang-ar .client-band,
+.lang-ar .client-marquee-wrap,
+.lang-ar .client-track,
+.lang-ar .client-logo-group {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+.lang-ar .client-band p {
+  direction: rtl !important;
+  text-align: center !important;
+}
+
+.client-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.client-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: clientLoop 22s linear infinite !important;
+  will-change: transform;
+}
+
+.client-logo-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px;
+  padding-right: 22px;
+  flex-shrink: 0 !important;
+}
+
+.client-logo {
+  flex: 0 0 220px !important;
+  width: 220px !important;
+  height: 110px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.client-logo img {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-width: 84% !important;
+  max-height: 78px !important;
+  object-fit: contain !important;
+}
+
+@keyframes clientLoop {
+  from {
+    transform: translate3d(0,0,0);
+  }
+  to {
+    transform: translate3d(-50%,0,0);
+  }
+}
+
+@media (max-width: 768px) {
+  .client-track {
+    animation: clientLoop 20s linear infinite !important;
+  }
+
+  .client-logo-group {
+    gap: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .client-logo {
+    flex: 0 0 150px !important;
+    width: 150px !important;
+    height: 84px !important;
+  }
+
+  .client-logo img {
+    max-width: 86% !important;
+    max-height: 58px !important;
+  }
+}
